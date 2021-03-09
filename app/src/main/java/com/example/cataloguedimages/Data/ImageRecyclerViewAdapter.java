@@ -47,7 +47,7 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
                 .load(pictureLink)
                 .fit()
                 .placeholder(android.R.drawable.ic_btn_speak_now)
-                .into(holder.poster);
+                .into(holder.picture);
      //   holder.year.setText(image.getYear());
     }
 
@@ -59,7 +59,7 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
           //  TextView title;
-            ImageView poster;
+            ImageView picture;
            // TextView year;
          //   TextView type;
 
@@ -69,7 +69,7 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
                 context=ctx;
 
              //   title = itemView.findViewById(R.id.movieTitleID);
-                poster = itemView.findViewById(R.id.imageID);
+                picture = itemView.findViewById(R.id.imageID);
             //    year = itemView.findViewById(R.id.movieReleaseID);
             //    type = itemView.findViewById(R.id.movieCatID);
 

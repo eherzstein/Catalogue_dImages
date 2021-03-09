@@ -63,8 +63,6 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void getImageDetails(String id) {
-
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 "https://pixabay.com/api/?key=20527961-daa10618999b3fc3f337f468d&id=" + id,
                 null, new Response.Listener<JSONObject>() {
@@ -74,13 +72,13 @@ public class DetailsActivity extends AppCompatActivity {
                        // JSONArray iimage = response.getJSONArray("Ratings");
 
                         likes.setText(response.getString("likes"));
-                        favourites.setText("Released: " + response.getString("favourites"));
-                        comments.setText("Director: " + response.getString("comments"));
-                        tags.setText("Writers: " + response.getString("tags"));
-                        downloads.setText("Plot: " + response.getString("downloads"));
-                        user.setText("Runtime: " + response.getString("user"));
-                        type.setText("Actors: " + response.getString("type"));
-                        views.setText("Actors: " + response.getString("views"));
+                        favourites.setText("Favourites: " + response.getString("favourites"));
+                        comments.setText("Comments: " + response.getString("comments"));
+                        tags.setText("Tags: " + response.getString("tags"));
+                        downloads.setText("Downloads: " + response.getString("downloads"));
+                        user.setText("Creator: " + response.getString("user"));
+                        type.setText("Type: " + response.getString("type"));
+                        views.setText("Views: " + response.getString("views"));
 
                         Picasso.get()
                                 .load(response.getString("previewUrl"))

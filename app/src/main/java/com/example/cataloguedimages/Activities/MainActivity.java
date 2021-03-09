@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Image image = new Image();
                         image.setPreviewUrl(imageObj.getString("previewURL"));
+                        image.setImageId(imageObj.getString("id"));
                         ///Log.d("Movies =: ", movie.getTitle());
                         imageList.add(image);
 
