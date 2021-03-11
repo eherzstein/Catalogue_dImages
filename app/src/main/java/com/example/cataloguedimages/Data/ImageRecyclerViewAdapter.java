@@ -58,20 +58,15 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
 
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-          //  TextView title;
             ImageView picture;
-           // TextView year;
-         //   TextView type;
 
             public ViewHolder(@NonNull View itemView, final Context ctx)
             {
                 super(itemView);
                 context=ctx;
 
-             //   title = itemView.findViewById(R.id.movieTitleID);
+
                 picture = itemView.findViewById(R.id.imageID);
-            //    year = itemView.findViewById(R.id.movieReleaseID);
-            //    type = itemView.findViewById(R.id.movieCatID);
 
 
                 itemView.setOnClickListener(new View.OnClickListener() {

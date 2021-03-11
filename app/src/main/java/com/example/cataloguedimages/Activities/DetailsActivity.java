@@ -3,6 +3,7 @@ package com.example.cataloguedimages.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class DetailsActivity extends AppCompatActivity {
     private String imageId;
     private ImageView imageIdDets;
     private RequestQueue queue;
+    private TextView credit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,34 +56,38 @@ public class DetailsActivity extends AppCompatActivity {
         likes = findViewById(R.id.likesDets);
         favourites =findViewById(R.id.favouritesDets);
         comments = findViewById(R.id.commentsDets);
-        tags = findViewById(R.id.tagsDets);
+        tags = findViewById(R.id.tags);
         downloads = findViewById(R.id.downloadsDets);
-        user = findViewById(R.id.userDets);
-        type = findViewById(R.id.typeDets);
+       // user = findViewById(R.id.userDets);
+       // type = findViewById(R.id.typeDets);
         views = findViewById(R.id.viewsDets);
         imageIdDets = findViewById(R.id.imageIDDets);
+        credit = findViewById(R.id.credit);
     }
 
     private void getImageDetails(String id) {
+        Log.d("id", "the id is "+ id);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 "https://pixabay.com/api/?key=20527961-daa10618999b3fc3f337f468d&id=" + id,
                 null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try{
-                       // JSONArray iimage = response.getJSONArray("Ratings");
+                       JSONArray hits = response.getJSONArray("hits");
+                       JSONObject object = hits.getJSONObject(0);
 
-                        likes.setText(response.getString("likes"));
-                        favourites.setText("Favourites: " + response.getString("favourites"));
-                        comments.setText("Comments: " + response.getString("comments"));
-                        tags.setText("Tags: " + response.getString("tags"));
-                        downloads.setText("Downloads: " + response.getString("downloads"));
-                        user.setText("Creator: " + response.getString("user"));
-                        type.setText("Type: " + response.getString("type"));
-                        views.setText("Views: " + response.getString("views"));
+                        likes.setText(object.getString("likes"));
+                        favourites.setText(object.getString("favorites"));
+                        comments.setText(object.getString("comments"));
+                        tags.setText(object.getString("tags"));
+                      //  downloads.setText("Downloads: " + object.getString("downloads"));
+                      // user.setText("Creator: " + object.getString("user"));
+                      // type.setText("Type: " + object.getString("type"));
+                        views.setText(object.getString("views"));
+                        credit.setText(object.getString("type")+" by "+ object.getString("user"));
 
                         Picasso.get()
-                                .load(response.getString("previewUrl"))
+                                .load(object.getString("previewURL"))
                                 .fit()
                                 .into(imageIdDets);
                 }catch (JSONException e) {
