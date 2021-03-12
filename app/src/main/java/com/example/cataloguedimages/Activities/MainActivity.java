@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         imageList = new ArrayList<>();
 
-        //Chercher les préferences pour le dernière recherche...
+        //Chercher les prefs pour la dernière recherche
 
         Prefs prefs = new Prefs(MainActivity.this);
         String search = prefs.getSearch();
@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
                         Image image = new Image();
                         image.setPreviewUrl(imageObj.getString("previewURL"));
                         image.setImageId(imageObj.getString("id"));
-                        ///Log.d("Movies =: ", movie.getTitle());
                         imageList.add(image);
 
                     }

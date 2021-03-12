@@ -29,7 +29,6 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
         @NonNull
         @Override
         public ImageRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ///return null;
         View view= LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.image,parent,false);
         return new ViewHolder(view,context);
@@ -40,15 +39,11 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
         Image image = imageList.get(position);
         String pictureLink =  image.getPreviewUrl();
 
-      //  holder.title.setText(image.getTitle());
-      //  holder.type.setText(image.getMovieType());
-
         Picasso.get()
                 .load(pictureLink)
                 .fit()
                 .placeholder(android.R.drawable.ic_btn_speak_now)
                 .into(holder.picture);
-     //   holder.year.setText(image.getYear());
     }
 
         @Override

@@ -57,9 +57,6 @@ public class DetailsActivity extends AppCompatActivity {
         favourites =findViewById(R.id.favouritesDets);
         comments = findViewById(R.id.commentsDets);
         tags = findViewById(R.id.tags);
-        downloads = findViewById(R.id.downloadsDets);
-       // user = findViewById(R.id.userDets);
-       // type = findViewById(R.id.typeDets);
         views = findViewById(R.id.viewsDets);
         imageIdDets = findViewById(R.id.imageIDDets);
         credit = findViewById(R.id.credit);
@@ -80,9 +77,6 @@ public class DetailsActivity extends AppCompatActivity {
                         favourites.setText(object.getString("favorites"));
                         comments.setText(object.getString("comments"));
                         tags.setText(object.getString("tags"));
-                      //  downloads.setText("Downloads: " + object.getString("downloads"));
-                      // user.setText("Creator: " + object.getString("user"));
-                      // type.setText("Type: " + object.getString("type"));
                         views.setText(object.getString("views"));
                         credit.setText(object.getString("type")+" by "+ object.getString("user"));
 
